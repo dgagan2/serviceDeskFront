@@ -1,0 +1,15 @@
+.header-container #icon-user{
+    width: 30px;
+}
+
+
+.header-container{
+    display: flex;
+    justify-content: space-around;
+ padding: 10px;
+}
+
+.Container-dropdown-menu-user #icon-user{
+    width: 30px;
+}
+
