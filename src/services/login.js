@@ -7,7 +7,10 @@ const Validatelogin = async (data) => {
 }
 const registerNewUser = async (data) => {
   const response = await axios.post(`${URL}/account/register`, data)
-  console.log('response', response)
   return response
 }
-export { Validatelogin, registerNewUser }
+const validateToken = async (token) => {
+  const response = await axios.post(`${URL}/validateToken`, { token })
+  return response
+}
+export { Validatelogin, registerNewUser, validateToken }

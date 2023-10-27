@@ -1,25 +1,30 @@
 import React, { useState } from 'react'
 
 import './login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForms'
 import validateFormLogin from './validateFormLogIn'
 import { Validatelogin } from '../../services/login'
 import { useUserContext } from '../../hooks/UseUserContext'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const [errorsLogin, setErrorsLogin] = useState({})
   const { saveUserLocalStorage } = useUserContext()
+  const navigate = useNavigate()
   const sendData = async () => {
     const newErros = validateFormLogin(input)
     setErrorsLogin(newErros)
     if (Object.keys(newErros).length === 0) {
       try {
         const response = await Validatelogin(input)
-        console.log('response', response)
-        // saveUserLocalStorage(response.data.newUser)
+        if (response.status === 200) {
+          const { user, token } = response.data
+          saveUserLocalStorage({ ...user, token })
+          navigate('/home')
+        }
       } catch (error) {
-        console.log('error', error.response.data)
+        toast.error(error.response.data.message)
       }
     }
   }

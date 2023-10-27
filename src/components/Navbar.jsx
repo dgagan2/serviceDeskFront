@@ -1,6 +1,20 @@
-import React from 'react'
-import { Collapse } from 'bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import checkRoles from '../hooks/chechkRole'
+import { useUserContext } from '../hooks/UseUserContext'
 const Navbar = () => {
+  const [role, setRole] = useState('customer')
+  const { userLoggedIn } = useUserContext()
+
+  const isAdmin = async () => {
+    const response = await checkRoles(userLoggedIn.idRole)
+    if (response) setRole(response)
+  }
+  console.log(userLoggedIn.idRole)
+  useEffect(() => {
+    isAdmin()
+  }, [])
+  console.log('role', role)
   return (
     <article className='navbar navbar-expand-md navbar-dark'>
       <div className='container-fluid'>
@@ -9,19 +23,41 @@ const Navbar = () => {
         </button>
 
         <div className='collapse navbar-collapse' id='navbarTogglerDemo02'>
-          <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-            <li>Hola</li>
-            <li>Hola</li>
-            <li>Hola</li>
-            <li>Hola</li>
-            <li>Hola</li>
-            {/* {genreHeader && genreHeader.map((item) => (
+          <ul className='navbar-nav me-auto mb-2 mb-lg-0' id='navbar-menu'>
+            <li className='nav-item'>
+              <Link className='nav-link' href='#'>Tickets</Link>
+            </li>
+            <li className='nav-item'>
+              <Link className='nav-link' href='#'>Link</Link>
+            </li>
+            {role === 'admin'
+              ? (
+                <>
+                  <div className='dropdown'>
+                    <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                      Usuarios
+                    </button>
+                    <ul className='dropdown-menu'>
+                      <li><a className='dropdown-item' href='#'>Administrar Usuarios</a></li>
+                      <li><a className='dropdown-item' href='#'>Administrar Rol</a></li>
+                      <li><a className='dropdown-item' href='#'>Administrar Estados</a></li>
+                    </ul>
+                  </div>
+                  <div className='dropdown'>
+                    <button className='btn dropdown-toggle' type='button' data-bs-toggle='dropdown' aria-expanded='false'>
+                      Tickets
+                    </button>
+                    <ul className='dropdown-menu'>
+                      <li><a className='dropdown-item' href='#'>Administrar Servicios</a></li>
+                      <li><a className='dropdown-item' href='#'>Administrar Categorias</a></li>
+                      <li><a className='dropdown-item' href='#'>Administrar Estados</a></li>
+                      <li><a className='dropdown-item' href='#'>Administrar </a></li>
+                    </ul>
+                  </div>
 
-                <li className='nav-item' key={item._id}>
-                  <Link className='nav-link active' aria-current='page' onClick={(e) => { search(e, 'genre', item.name) }}>{item.name}</Link>
-                </li>
+                </>)
+              : null}
 
-              ))} */}
           </ul>
 
         </div>

@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import { validateForm } from './validateFormSingUp'
 import { registerNewUser } from '../../services/login'
+import { toast } from 'react-toastify'
 
 const SignUp = () => {
   const [errorsRegitrerUser, setErrorsRegitrerUser] = useState({})
@@ -17,11 +18,11 @@ const SignUp = () => {
       try {
         const response = await registerNewUser(input)
         if (response.status === 200) {
-          console.log(response.data.message)
+          toast.success(response.data.message)
           navigate('/home')
         }
       } catch (error) {
-        console.log('error', error.response.data.message)
+        toast.error(error.response.data.message)
       }
     }
   }
