@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from 'react'
 import { validateToken } from '../services/login'
+import UseHandleErrors from '../hooks/UseHandleErrors'
 // eslint-disable-next-line camelcase
 const AuthContext = createContext()
 
@@ -17,10 +18,14 @@ const AuthProvider = ({ children }) => {
     setIsLoggin(false)
   }
   const tokenIsValid = async (token, user) => {
-    const response = await validateToken(token)
-    if (response.status === 200) {
-      setUserLoggedIn(user)
-      setIsLoggin(true)
+    try {
+      const response = await validateToken(token)
+      if (response.status === 200) {
+        setUserLoggedIn(user)
+        setIsLoggin(true)
+      }
+    } catch (error) {
+      UseHandleErrors(error)
     }
   }
 
