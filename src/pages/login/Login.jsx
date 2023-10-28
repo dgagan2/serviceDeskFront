@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-
 import './login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import useForm from '../../hooks/useForms'
 import validateFormLogin from './validateFormLogIn'
 import { Validatelogin } from '../../services/login'
 import { useUserContext } from '../../hooks/UseUserContext'
-import { toast } from 'react-toastify'
+import UseHandleErrors from '../../hooks/UseHandleErrors'
 
 const Login = () => {
   const [errorsLogin, setErrorsLogin] = useState({})
@@ -24,7 +23,7 @@ const Login = () => {
           navigate('/home')
         }
       } catch (error) {
-        toast.error(error.response.data.message)
+        UseHandleErrors(error)
       }
     }
   }

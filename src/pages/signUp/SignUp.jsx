@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { validateForm } from './validateFormSingUp'
 import { registerNewUser } from '../../services/login'
 import { toast } from 'react-toastify'
+import UseHandleErrors from '../../hooks/UseHandleErrors'
 
 const SignUp = () => {
   const [errorsRegitrerUser, setErrorsRegitrerUser] = useState({})
@@ -22,7 +23,7 @@ const SignUp = () => {
           navigate('/home')
         }
       } catch (error) {
-        toast.error(error.response.data.message)
+        UseHandleErrors(error)
       }
     }
   }
