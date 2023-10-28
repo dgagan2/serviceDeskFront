@@ -11,11 +11,11 @@ const Navbar = () => {
     const response = await checkRoles(userLoggedIn.idRole)
     if (response) setRole(response)
   }
-  console.log(userLoggedIn.idRole)
+
   useEffect(() => {
     isAdmin()
   }, [])
-  console.log('role', role)
+
   return (
     <article className='navbar navbar-expand-md navbar-dark'>
       <div className='container-fluid'>
