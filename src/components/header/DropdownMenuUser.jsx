@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
-import iconUser from '../assets/iconUser.png'
-import { useUserContext } from '../hooks/UseUserContext'
+import iconUser from '../../assets/iconUser.png'
+import { useUserContext } from '../../hooks/UseUserContext'
 const DropdownMenuUser = () => {
   const { logout, userLoggedIn } = useUserContext()
   const navigate = useNavigate()
