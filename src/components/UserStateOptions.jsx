@@ -22,6 +22,7 @@ const UserStateOptions = ({ input, handleInputChange }) => {
 
   return (
     <select id='state-user' className='form-select' name='idState' value={input?.idState} onChange={handleInputChange}>
+      <option>Seleccione...</option>
       {state && state.map((state) => (
         <option key={state.idState} value={state.idState}>{state.nameState}</option>
       ))}
