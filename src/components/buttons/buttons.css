@@ -1,0 +1,8 @@
+#btn-edit img, #btn-delete img{
+    width: 25px;
+}
+
+#btn-edit, #btn-delete{
+    border-style: none;
+    background-color: transparent;
+}

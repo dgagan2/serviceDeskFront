@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import iconEdit from '../../assets/editIcon.png'
+import './buttons.css'
 const EditButton = ({ edit }) => {
   const editObject = () => {
     edit()
