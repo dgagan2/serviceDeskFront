@@ -12,6 +12,7 @@ const NavbarItems = () => {
           <li><Link to='/user/manager' className='dropdown-item'>Administrar Usuarios</Link></li>
           <li><Link className='dropdown-item' to='/user/manager/role'>Administrar Rol</Link></li>
           <li><Link className='dropdown-item' to='/user/manager/state'>Administrar Estados</Link></li>
+          <li><Link className='dropdown-item' to='/user/manager/department'>Administrar Departamentos</Link></li>
         </ul>
       </div>
       <div className='dropdown'>

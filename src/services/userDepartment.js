@@ -11,8 +11,18 @@ const getUserDepartmentByName = async (name) => {
   return response
 }
 const getUserDepartmentById = async (id) => {
-  const response = await axios.get(`${URL}/user/role/${id}`)
+  const response = await axios.get(`${URL}/department/${id}`)
   return response
 }
 
-export { getAllUserDeparment, getUserDepartmentByName, getUserDepartmentById }
+const deleteDepartmentById = async (id) => {
+  const response = await axios.delete(`${URL}/department/${id}`)
+  return response
+}
+
+const newDepartment = async (nameDepartment) => {
+  const response = await axios.post(`${URL}/department/`, { nameDepartment })
+  return response
+}
+
+export { getAllUserDeparment, getUserDepartmentByName, getUserDepartmentById, deleteDepartmentById, newDepartment }
