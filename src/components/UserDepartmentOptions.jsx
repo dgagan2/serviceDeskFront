@@ -21,6 +21,7 @@ const UserDepartmentOptions = ({ input, handleInputChange }) => {
 
   return (
     <select id='department-user' className='form-select' name='idDepartment' value={input?.idDepartment} onChange={handleInputChange}>
+      <option>Seleccione...</option>
       {department && department.map((department) => (
         <option key={department.id} value={department.id}>{department.nameDepartment}</option>
       ))}
