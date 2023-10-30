@@ -1,14 +1,17 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
-import searchIcon from '../../assets/iconoBuscar.png'
-const SearchComponent = ({ searchFunction }) => {
+import searchIcon from '../assets/iconoBuscar.png'
+import './components.css'
+const SearchComponent = ({ searchFunction, cleanFields }) => {
   const searchObject = () => {
     searchFunction()
   }
   return (
-    <div>
-      <input type='text' />
+    <>
       <button id='btn-search' onClick={() => searchObject()}><img src={searchIcon} alt='search button' /></button>
-    </div>
+      <button type='button' className='btn btn-dark' onClick={() => { cleanFields() }}>Borrar</button>
+    </>
+
   )
 }
 
