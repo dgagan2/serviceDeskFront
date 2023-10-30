@@ -22,6 +22,7 @@ const UserRoleOptions = ({ input, handleInputChange }) => {
 
   return (
     <select id='role-user' className='form-select' name='idRole' value={input?.idRole} onChange={handleInputChange}>
+      <option>Seleccione...</option>
       {role && role.map((role) => (
         <option key={role.idRole} value={role.idRole}>{role.nameRole}</option>
       ))}
