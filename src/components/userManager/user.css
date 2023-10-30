@@ -1,0 +1,28 @@
+.container-search-user{
+    max-width: 50%;
+}
+
+#search-options{
+    max-width: 30%;
+}
+
+.container-user-table{
+    margin-top: 20px;
+}
+
+@media (max-width: 900px){
+    .container-search-user{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 500px){
+    #container-search-user-items{
+    
+        flex-direction: column !important;
+    }
+
+    #search-options{
+        max-width: 100%;
+    }
+}
