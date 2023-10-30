@@ -8,6 +8,7 @@ import User from '../pages/home/User'
 import State from '../pages/home/State'
 import Role from '../pages/home/Role'
 import Department from '../pages/home/Department'
+import { TicketProvider } from '../context/TicketContext'
 
 const LoginRoutes = () => {
   return (
@@ -17,6 +18,9 @@ const LoginRoutes = () => {
       <Route path='/user/manager/state' element={<State />} />
       <Route path='/user/manager/role' element={<Role />} />
       <Route path='/user/manager/department' element={<Department />} />
+      <TicketProvider>
+        <Route path='/ticket/manager/state' element={<Department />} />
+      </TicketProvider>
       <Route path='/home/prueba' element={<Prueba />} />
       <Route path='/*' element={<NotFound />} />
     </Routes>

@@ -1,0 +1,29 @@
+import axios from 'axios'
+
+const URL = 'http://127.0.0.1:3000'
+
+const getServiceById = async (id) => {
+  const response = await axios.get(`${URL}/ticket/service/${id}`)
+  return response
+}
+
+const getAllService = async () => {
+  const response = await axios.get(`${URL}/ticket/service/`)
+  return response
+}
+
+const getServiceByName = async (nameCategory) => {
+  const response = await axios.get(`${URL}/ticket/service/name?nameCategory =${nameCategory}`)
+  return response
+}
+const newService = async (nameCategory) => {
+  const response = await axios.post(`${URL}/ticket/service/`, { nameCategory })
+  return response
+}
+
+const deleteService = async (idCategory) => {
+  const response = await axios.delete(`${URL}/ticket/service/${idCategory}`)
+  return response
+}
+
+export { getAllService, getServiceById, getServiceByName, deleteService, newService }
