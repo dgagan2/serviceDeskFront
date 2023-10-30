@@ -3,12 +3,15 @@ import Navbar from './Navbar'
 
 import './header.css'
 import DropdownMenuUser from './DropdownMenuUser'
+import { Link } from 'react-router-dom'
 const Header = () => {
   return (
-    <header>
+    <header className='main-header'>
       <section className='header-container'>
 
-        <li><h1>ServiceDesk</h1></li>
+        <h1>
+          <Link to='/home'>ServiceDesk</Link>
+        </h1>
         <DropdownMenuUser />
 
       </section>

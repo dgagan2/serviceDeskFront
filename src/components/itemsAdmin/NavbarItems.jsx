@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const NavbarItems = () => {
   return (
@@ -8,9 +9,9 @@ const NavbarItems = () => {
           Usuarios
         </button>
         <ul className='dropdown-menu'>
-          <li><a className='dropdown-item' href='#'>Administrar Usuarios</a></li>
-          <li><a className='dropdown-item' href='#'>Administrar Rol</a></li>
-          <li><a className='dropdown-item' href='#'>Administrar Estados</a></li>
+          <li><Link to='/user/manager' className='dropdown-item'>Administrar Usuarios</Link></li>
+          <li><Link className='dropdown-item' to='/user/manager/role'>Administrar Rol</Link></li>
+          <li><Link className='dropdown-item' to='/user/manager/state'>Administrar Estados</Link></li>
         </ul>
       </div>
       <div className='dropdown'>
