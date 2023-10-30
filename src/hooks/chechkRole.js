@@ -1,8 +1,8 @@
-import { checkRole } from '../services/rol'
+import { getUserRoleById } from '../services/userRole'
 
 async function checkRoles (id) {
   try {
-    const response = await checkRole(id)
+    const response = await getUserRoleById(id)
     const role = response.data.nameRole
     return role
   } catch (error) {

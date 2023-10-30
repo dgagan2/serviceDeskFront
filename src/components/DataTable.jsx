@@ -62,4 +62,19 @@ const TableBodyRole = ({ data, edit, Delete }) => {
     </tbody>
   )
 }
-export { TableBodyHeader, TableBodyUser, TableBodyState, TableBodyRole }
+
+const TableBodyDepartment = ({ data, edit, Delete }) => {
+  console.log('data', data)
+  return (
+    <tbody>
+      {data && data?.map((data) => (
+        <tr key={data?.id}>
+          <td>{data?.nameDepartment}</td>
+          <td className='td-button-edit'><EditButton edit={edit} /></td>
+          <td className='td-button-delete'><DeleteButton Delete={Delete} id={data.id} /></td>
+        </tr>
+      ))}
+    </tbody>
+  )
+}
+export { TableBodyHeader, TableBodyUser, TableBodyState, TableBodyRole, TableBodyDepartment }

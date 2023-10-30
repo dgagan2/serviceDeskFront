@@ -3,8 +3,8 @@ import SearchComponent from '../SearchComponent'
 import StateTable from './RoleTable'
 import { toast } from 'react-toastify'
 import UseHandleErrors from '../../hooks/UseHandleErrors'
-import { deleteRole, getRoleByName } from '../../services/rol'
 import { UseRoleContext } from '../../hooks/UseRoleContext'
+import { deleteRole, getRoleByName } from '../../services/userRole'
 
 const RoleManager = () => {
   const { getRole, role, setRole } = UseRoleContext()

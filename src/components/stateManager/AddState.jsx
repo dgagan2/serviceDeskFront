@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { newState } from '../../services/state'
 import { toast } from 'react-toastify'
 import UseHandleErrors from '../../hooks/UseHandleErrors'
 import { UseStateContext } from '../../hooks/UseStateContext'
+import { newState } from '../../services/userState'
 
 const AddState = () => {
   const { getState } = UseStateContext()

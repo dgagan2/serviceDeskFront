@@ -7,6 +7,7 @@ import User from '../pages/home/User'
 
 import State from '../pages/home/State'
 import Role from '../pages/home/Role'
+import Department from '../pages/home/Department'
 
 const LoginRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const LoginRoutes = () => {
       <Route path='/user/manager' element={<User />} />
       <Route path='/user/manager/state' element={<State />} />
       <Route path='/user/manager/role' element={<Role />} />
+      <Route path='/user/manager/department' element={<Department />} />
       <Route path='/home/prueba' element={<Prueba />} />
       <Route path='/*' element={<NotFound />} />
     </Routes>

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
-import { getAllUserRole } from '../services/userRole'
+
 import UseHandleErrors from '../hooks/UseHandleErrors'
+import { getAllRole } from '../services/userRole'
 
 const getRole = async (setRole) => {
   try {
-    const response = await getAllUserRole()
+    const response = await getAllRole()
     if (response.status === 200) {
       setRole(response.data)
     }

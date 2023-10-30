@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
-import { getAllUserState } from '../services/userState'
+
 import UseHandleErrors from '../hooks/UseHandleErrors'
+import { getAllState } from '../services/userState'
 
 const getState = async (setState) => {
   try {
-    const response = await getAllUserState()
+    const response = await getAllState()
     if (response.status === 200) {
       setState(response.data)
     }

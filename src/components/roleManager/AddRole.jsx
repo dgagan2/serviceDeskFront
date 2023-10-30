@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import UseHandleErrors from '../../hooks/UseHandleErrors'
-import { newRole } from '../../services/rol'
+
 import { UseRoleContext } from '../../hooks/UseRoleContext'
+import { newRole } from '../../services/userRole'
 
 const AddRole = () => {
   const { getRole } = UseRoleContext()

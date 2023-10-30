@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from 'react'
 import UseHandleErrors from '../hooks/UseHandleErrors'
-import { getAllState } from '../services/state'
+import { getAllState } from '../services/userState'
+
 // eslint-disable-next-line camelcase
 const StateContext = createContext()
 

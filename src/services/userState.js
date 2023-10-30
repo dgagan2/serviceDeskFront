@@ -2,17 +2,27 @@ import axios from 'axios'
 
 const URL = 'http://127.0.0.1:3000'
 
-const getAllUserState = async () => {
-  const response = await axios.get(`${URL}/user/state/`)
-  return response
-}
-const getUserStateByName = async (name) => {
-  const response = await axios.get(`${URL}/user/state/name?nameState=${name}`)
-  return response
-}
-const getUserStateById = async (id) => {
+const getStateById = async (id) => {
   const response = await axios.get(`${URL}/user/state/${id}`)
   return response
 }
 
-export { getAllUserState, getUserStateById, getUserStateByName }
+const getAllState = async () => {
+  const response = await axios.get(`${URL}/user/state/`)
+  return response
+}
+
+const getStateByName = async (nameState) => {
+  const response = await axios.get(`${URL}/user/state/name?nameState=${nameState}`)
+  return response
+}
+const newState = async (nameState) => {
+  const response = await axios.post(`${URL}/user/state/`, { nameState })
+  return response
+}
+
+const deleteState = async (id) => {
+  const response = await axios.delete(`${URL}/user/state/${id}`)
+  return response
+}
+export { getAllState, getStateById, getStateByName, deleteState, newState }

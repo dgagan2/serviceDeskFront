@@ -4,8 +4,8 @@ import './state.css'
 import StateTable from './StateTable'
 import { toast } from 'react-toastify'
 import UseHandleErrors from '../../hooks/UseHandleErrors'
-import { deleteState, getStateByName } from '../../services/state'
 import { UseStateContext } from '../../hooks/UseStateContext'
+import { deleteState, getStateByName } from '../../services/userState'
 
 const StateManager = () => {
   const { getState, state, setState } = UseStateContext()
