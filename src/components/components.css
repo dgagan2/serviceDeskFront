@@ -1,0 +1,15 @@
+#btn-search img{
+    width: 30px;
+}
+
+#btn-search{
+    border-style: none;
+    background-color: transparent;
+}
+.form-control{
+    max-width: 300px;
+}
+
+#state-user{
+    max-width: 300px;
+}
