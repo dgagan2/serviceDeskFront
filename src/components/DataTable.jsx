@@ -64,7 +64,6 @@ const TableBodyRole = ({ data, edit, Delete }) => {
 }
 
 const TableBodyDepartment = ({ data, edit, Delete }) => {
-  console.log('data', data)
   return (
     <tbody>
       {data && data?.map((data) => (

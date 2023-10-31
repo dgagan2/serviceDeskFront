@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { TableBodyCategories, TableBodyHeader } from '../DataTable'
+import { TableBodyHeader, TableBodyServices } from '../DataTable'
 
-const RoleTable = ({ data, Delete }) => {
-  const tableHeaders = ['Nombre', 'Editar', 'Eliminar']
+const ServiceTable = ({ data, Delete }) => {
+  const tableHeaders = ['Nombre', 'Imagen', 'Categoria', 'Editar', 'Eliminar']
   const edit = async () => {
 
   }
@@ -13,11 +13,11 @@ const RoleTable = ({ data, Delete }) => {
         <TableBodyHeader
           tableHeaders={tableHeaders}
         />
-        <TableBodyCategories data={data} edit={edit} Delete={Delete} />
+        <TableBodyServices data={data} edit={edit} Delete={Delete} />
       </table>
     </div>
 
   )
 }
 
-export default RoleTable
+export default ServiceTable

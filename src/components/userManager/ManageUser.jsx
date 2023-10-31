@@ -24,10 +24,8 @@ async function searchFunction (input, optionSearch, setUsers) {
   switch (optionSearch) {
     case 'email':
       try {
-        console.log('paso')
         const response = await getUserByEmail(input.dataToSearch)
         if (response.status === 200) {
-          console.log('response.data', response.data)
           setUsers(response.data)
         }
       } catch (error) {
