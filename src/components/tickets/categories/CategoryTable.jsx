@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
-import { TableBodyHeader, TableBodyRole } from '../DataTable'
+import { TableBodyCategories, TableBodyHeader } from '../DataTable'
 
 const RoleTable = ({ data, Delete }) => {
   const tableHeaders = ['Nombre', 'Editar', 'Eliminar']
@@ -13,7 +13,7 @@ const RoleTable = ({ data, Delete }) => {
         <TableBodyHeader
           tableHeaders={tableHeaders}
         />
-        <TableBodyRole data={data} edit={edit} Delete={Delete} />
+        <TableBodyCategories data={data} edit={edit} Delete={Delete} />
       </table>
     </div>
 

@@ -2,6 +2,7 @@
 import { createContext, useState } from 'react'
 import UseHandleErrors from '../hooks/UseHandleErrors'
 import { getAllService } from '../services/service'
+import { getAllCategories } from '../services/category'
 
 // eslint-disable-next-line camelcase
 const TicketContext = createContext()
@@ -12,14 +13,14 @@ const TicketProvider = ({ children }) => {
   const [ticketState, setTicketState] = useState([])
 
   async function getCategories () {
-    // try {
-    //   const response = await ()
-    //   if (response.status === 200) {
-    //     setCategories(response.data)
-    //   }
-    // } catch (error) {
-    //   UseHandleErrors(error)
-    // }
+    try {
+      const response = await getAllCategories()
+      if (response.status === 200) {
+        setCategories(response.data)
+      }
+    } catch (error) {
+      UseHandleErrors(error)
+    }
   }
 
   async function getServices () {

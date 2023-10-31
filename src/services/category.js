@@ -13,17 +13,17 @@ const getAllCategories = async () => {
 }
 
 const getCategoryByName = async (nameCategory) => {
-  const response = await axios.get(`${URL}/ticket/service/name?nameCategory =${nameCategory}`)
+  const response = await axios.get(`${URL}/category/name?nameCategory =${nameCategory}`)
   return response
 }
-const newService = async (nameCategory) => {
-  const response = await axios.post(`${URL}/ticket/service/`, { nameCategory })
-  return response
-}
-
-const deleteService = async (idCategory) => {
-  const response = await axios.delete(`${URL}/ticket/service/${idCategory}`)
+const newCategory = async (nameCategory) => {
+  const response = await axios.post(`${URL}/category/`, { nameCategory })
   return response
 }
 
-export { getAllService, getServiceById, getServiceByName, deleteService, newService }
+const deleteCategory = async (idCategory) => {
+  const response = await axios.delete(`${URL}/category/${idCategory}`)
+  return response
+}
+
+export { getAllCategories, getCategoryById, getCategoryByName, newCategory, deleteCategory }

@@ -5,7 +5,7 @@ import { newCategory } from '../../../services/category'
 import UseHandleErrors from '../../../hooks/UseHandleErrors'
 import { UseTicketContext } from '../../../hooks/UseTicketContext'
 
-const AddService = () => {
+const AddCategory = () => {
   const { getCategories } = UseTicketContext()
   const [nameCategory, setNameCategory] = useState('')
   const add = async () => {
@@ -26,7 +26,7 @@ const AddService = () => {
   }
   return (
 
-    <article className='container-new-category'>
+    <article className='container-new-role'>
       <label htmlFor=''>Ingrese el nombre dela nueva categoria</label>
       <div className='d-flex gap-3 p-3'>
         <input type='text' className='form-control' name='nameCategory' value={nameCategory} onChange={(e) => { setNameCategory(e.target.value) }} />
@@ -38,4 +38,4 @@ const AddService = () => {
   )
 }
 
-export default AddService
+export default AddCategory
