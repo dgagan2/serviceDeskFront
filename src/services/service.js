@@ -12,8 +12,8 @@ const getAllService = async () => {
   return response
 }
 
-const getServiceByName = async (nameCategory) => {
-  const response = await axios.get(`${URL}/ticket/service/name?nameCategory =${nameCategory}`)
+const getServiceByName = async (nameItem) => {
+  const response = await axios.get(`${URL}/ticket/service/name?nameItem=${nameItem}`)
   return response
 }
 const newService = async (data) => {

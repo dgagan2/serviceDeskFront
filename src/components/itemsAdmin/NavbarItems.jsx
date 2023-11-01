@@ -20,7 +20,7 @@ const NavbarItems = () => {
           Tickets
         </button>
         <ul className='dropdown-menu'>
-          <li><a className='dropdown-item' href='#'>Administrar Servicios</a></li>
+          <li><Link className='dropdown-item' to='/ticket/manager/item-service'>Administrar Servicios</Link></li>
           <li><Link className='dropdown-item' to='/ticket/manager/category'>Administrar Categorias</Link></li>
           <li><a className='dropdown-item' href='#'>Administrar Estados</a></li>
           <li><a className='dropdown-item' href='#'>Administrar </a></li>

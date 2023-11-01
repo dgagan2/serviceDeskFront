@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import UseHandleErrors from '../../../hooks/UseHandleErrors'
@@ -7,46 +8,58 @@ import uploadImage from '../../../services/uploadImage'
 import useForm from '../../../hooks/useForms'
 import UserCategoriesOptions from '../../UserCategoriesOptions'
 
+const uploadImageToFirebase = async (image) => {
+  try {
+    const response = await uploadImage(image, 'service-item-images')
+    if (response.status === 201) {
+      return response.data
+    } else {
+      throw new Error('Error al cargar la imagen en Firebase')
+    }
+  } catch (error) {
+    throw error
+  }
+}
 const AddService = () => {
   const [image, setImage] = useState(null)
-  const [urlImage, setUrlImage] = useState('')
+
   const { getServices } = UseTicketContext()
 
   const sendData = async () => {
     if (!image) return toast.error('Debe cargar una imagen')
+    if (input.nameItem.length && input.idCategory.length <= 0) return toast.error('Datos incompletos')
+
     try {
-      const response = await uploadImage(image, 'service-item-images')
-      if (response.status === 201) {
-        setUrlImage(response.data)
+      const urlImage = await uploadImageToFirebase(image, 'service-item-images')
+
+      if (urlImage) {
+        try {
+          const response = await newService({ ...input, itemImage: urlImage })
+          if (response.status === 201) {
+            toast.success(response.data.message)
+            setImage(null)
+            setInput({
+              nameItem: '',
+              idCategory: ''
+            })
+            getServices()
+          }
+        } catch (error) {
+          UseHandleErrors(error)
+        }
+      } else {
+        toast.error('Datos incompletos')
       }
     } catch (error) {
-      return UseHandleErrors(error)
-    }
-    console.log(input.nameItem.length > 0 && urlImage && input.idCategory.length > 0)
-    if (input.nameItem.length > 0 && urlImage && input.idCategory.length > 0) {
-      try {
-        const response = await newService({ ...input, itemImage: urlImage })
-        if (response.status === 201) {
-          toast.success(response.data.message)
-          setImage(null)
-          setUrlImage('')
-          getServices()
-        }
-      } catch (error) {
-        console.log('error', error)
-        UseHandleErrors(error)
-      }
-    } else {
-      toast.error('Datos incompletos')
+      UseHandleErrors(error)
     }
   }
 
-  const { input, handleInputChange } = useForm(sendData, {
+  const { input, handleInputChange, setInput } = useForm(sendData, {
     nameItem: '',
     idCategory: ''
 
   })
-
   return (
 
     <article className='container-new-service'>
