@@ -16,6 +16,12 @@ const getServiceByName = async (nameItem) => {
   const response = await axios.get(`${URL}/ticket/service/name?nameItem=${nameItem}`)
   return response
 }
+
+const getServiceByCategory = async (idCategory) => {
+  const response = await axios.get(`${URL}/ticket/service/bycategory?idCategory=${idCategory}`)
+  return response
+}
+
 const newService = async (data) => {
   const response = await axios.post(`${URL}/ticket/service/`, data)
   return response
@@ -26,4 +32,4 @@ const deleteService = async (idCategory) => {
   return response
 }
 
-export { getAllService, getServiceById, getServiceByName, deleteService, newService }
+export { getAllService, getServiceById, getServiceByName, deleteService, newService, getServiceByCategory }

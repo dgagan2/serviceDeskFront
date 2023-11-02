@@ -29,7 +29,7 @@ const Navbar = () => {
               <Link className='nav-link' href='#'>Tickets</Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' href='#'>Catalogo de Servicios</Link>
+              <Link className='nav-link' to='/home/catalog'>Catalogo de Servicios</Link>
             </li>
             {role === 'admin'
               ? <NavbarItems />

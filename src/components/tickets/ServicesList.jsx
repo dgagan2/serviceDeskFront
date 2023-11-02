@@ -1,24 +1,21 @@
-import React, { useState } from 'react'
-import UseHandleErrors from '../../hooks/UseHandleErrors'
-import { getServiceById } from '../../services/service'
+import React from 'react'
+import { UseTicketContext } from '../../hooks/UseTicketContext'
+import { useNavigate } from 'react-router-dom'
 
-const ServicesList = ({ id }) => {
-  const [service, setService] = useState('')
-  async function searchServicesById () {
-    try {
-      const response = await getServiceById(id)
-      if (response.status === 200) {
-        setService(response.data)
-      }
-    } catch (error) {
-      UseHandleErrors(error)
-    }
-  }
+const ServicesList = () => {
+  const { service } = UseTicketContext()
+  const navigate = useNavigate()
   return (
-    <section>
-      <ul>
+    <section className='container-service-list'>
+      <ul id='list-service' className='d-flex gap-4'>
         {service && service.map((service) => (
-          <li key={service?.id}>{service?.nameCategory}</li>
+          <li key={service?.id}>
+            <div id='container-items-service'>
+              <img id='image-service' src={service?.itemImage} alt={`Image service ${service?.nameItem}`} />
+              <b> {service?.nameItem}</b>
+              <button onClick={() => { navigate('/ticket') }}>Solicitar</button>
+            </div>
+          </li>
         ))}
       </ul>
     </section>

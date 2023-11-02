@@ -1,0 +1,38 @@
+.container-categories-list button{
+    border-style: none;
+    background: none;
+}
+
+.container-categories-list li{
+    padding: 10px;
+}
+
+.container-categories-list{
+    min-width: 270px;
+}
+
+#container-items-service img{
+    object-fit: cover;
+    height: 180px;
+    width: 180px;
+}
+
+#container-items-service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+#list-service{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around
+}
+
+#container-items-service button{
+    border-style: none;
+    padding: 8px;
+    border-radius: 10px;
+    width: 100px;
+}

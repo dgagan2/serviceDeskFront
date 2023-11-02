@@ -12,6 +12,7 @@ const TicketProvider = ({ children }) => {
   const [categories, setCategories] = useState([])
   const [service, setService] = useState([])
   const [ticketState, setTicketState] = useState([])
+  const [idService, setIdService] = useState('')
 
   async function getCategories () {
     try {
@@ -56,7 +57,9 @@ const TicketProvider = ({ children }) => {
       ticketState,
       setTicketState,
       service,
-      setService
+      setService,
+      idService,
+      setIdService
     }}
     >
       {children}
