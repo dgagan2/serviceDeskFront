@@ -49,4 +49,18 @@ const TableBodyServices = ({ data, edit, Delete }) => {
   )
 }
 
-export { TableBodyHeader, TableBodyCategories, TableBodyServices }
+const TableBodyTicketState = ({ data, edit, Delete }) => {
+  return (
+    <tbody>
+      {data && data?.map((data) => (
+        <tr key={data?.id}>
+          <td>{data?.nameState}</td>
+          <td className='td-button-edit'><EditButton edit={edit} /></td>
+          <td className='td-button-delete'><DeleteButton Delete={Delete} id={data.id} /></td>
+        </tr>
+      ))}
+    </tbody>
+  )
+}
+
+export { TableBodyHeader, TableBodyCategories, TableBodyServices, TableBodyTicketState }

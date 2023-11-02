@@ -1,8 +1,9 @@
 import React from 'react'
 import Header from '../../components/header/Header'
 import { TicketProvider } from '../../context/TicketContext'
-import AddService from '../../components/tickets/categories/AddCategory'
+
 import ServiceManager from '../../components/tickets/services/ServiceManager'
+import AddService from '../../components/tickets/services/AddService'
 
 const Servicios = () => {
   return (

@@ -10,6 +10,7 @@ import Role from '../pages/home/Role'
 import Department from '../pages/home/Department'
 import Category from '../pages/tickets/Category'
 import Servicios from '../pages/tickets/Servicios'
+import TicketState from '../pages/tickets/TicketState'
 
 const LoginRoutes = () => {
   return (
@@ -22,6 +23,7 @@ const LoginRoutes = () => {
 
       <Route path='/ticket/manager/category' element={<Category />} />
       <Route path='/ticket/manager/item-service' element={<Servicios />} />
+      <Route path='/ticket/manager/state' element={<TicketState />} />
 
       <Route path='/home/prueba' element={<Prueba />} />
       <Route path='/*' element={<NotFound />} />

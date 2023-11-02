@@ -1,14 +1,12 @@
 import React from 'react'
-import AddService from '../components/tickets/services/AddService'
-import ServiceManager from '../components/tickets/services/ServiceManager'
 import { TicketProvider } from '../context/TicketContext'
+import CategoryList from '../components/tickets/CategoryList'
 
 const Prueba = () => {
   return (
 
     <TicketProvider>
-      <AddService />
-      <ServiceManager />
+      <CategoryList />
     </TicketProvider>
 
   )

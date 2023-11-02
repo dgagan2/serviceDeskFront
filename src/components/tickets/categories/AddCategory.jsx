@@ -5,7 +5,7 @@ import { newCategory } from '../../../services/category'
 import UseHandleErrors from '../../../hooks/UseHandleErrors'
 import { UseTicketContext } from '../../../hooks/UseTicketContext'
 
-const AddService = () => {
+const AddCategory = () => {
   const { getCategories } = UseTicketContext()
   const [nameCategory, setNameCategory] = useState('')
   const add = async () => {
@@ -38,4 +38,4 @@ const AddService = () => {
   )
 }
 
-export default AddService
+export default AddCategory
