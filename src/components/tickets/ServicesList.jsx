@@ -3,13 +3,10 @@ import { UseTicketContext } from '../../hooks/UseTicketContext'
 import { useNavigate } from 'react-router-dom'
 
 const ServicesList = () => {
-  const { service, setDataTicket } = UseTicketContext()
+  const { service } = UseTicketContext()
 
   const navigate = useNavigate()
-  const prueba = (data) => {
-    setDataTicket(data)
-    // navigate('/ticket')
-  }
+
   return (
     <section className='container-service-list'>
       <ul id='list-service' className='d-flex gap-4'>
@@ -19,7 +16,7 @@ const ServicesList = () => {
               <img id='image-service' src={service?.itemImage} alt={`Image service ${service?.nameItem}`} />
               <b> {service?.nameItem}</b>
               <button onClick={() => {
-                prueba(service)
+                navigate('/ticket', { state: { service } })
               }}
               >Solicitar
               </button>

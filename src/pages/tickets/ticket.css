@@ -11,7 +11,7 @@
     min-width: 270px;
 }
 
-#container-items-service img{
+#image-service{
     object-fit: cover;
     height: 180px;
     width: 180px;

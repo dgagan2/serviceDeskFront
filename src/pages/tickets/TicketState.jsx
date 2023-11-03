@@ -3,7 +3,7 @@ import { TicketProvider } from '../../context/TicketContext'
 import AddTicketState from '../../components/tickets/ticketState/AddTicketState'
 import TicketStateManager from '../../components/tickets/ticketState/TicketStateManager'
 import Header from '../../components/header/Header'
-
+import './ticket.css'
 const TicketState = () => {
   return (
     <>
