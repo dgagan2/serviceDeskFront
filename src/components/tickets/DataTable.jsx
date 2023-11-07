@@ -40,6 +40,7 @@ const TableBodyServices = ({ data, edit, Delete }) => {
           <td>
             <img src={data?.itemImage} alt='image-item' id='image-bodytable-service' />
           </td>
+          <td>{data?.itemDescription}</td>
           <td>{data?.categoryService?.nameCategory}</td>
           <td className='td-button-edit'><EditButton edit={edit} /></td>
           <td className='td-button-delete'><DeleteButton Delete={Delete} id={data.id} /></td>

@@ -3,7 +3,7 @@ import React from 'react'
 import { TableBodyHeader, TableBodyServices } from '../DataTable'
 
 const ServiceTable = ({ data, Delete }) => {
-  const tableHeaders = ['Nombre', 'Imagen', 'Categoria', 'Editar', 'Eliminar']
+  const tableHeaders = ['Nombre', 'Imagen', 'Descipción', 'Categoria', 'Editar', 'Eliminar']
   const edit = async () => {
 
   }

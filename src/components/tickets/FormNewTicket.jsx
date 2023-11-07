@@ -1,35 +1,31 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
-import { getTicketStateByName } from '../../services/ticketState'
+import React, { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import UseHandleErrors from '../../hooks/UseHandleErrors'
+import { newTicket } from '../../services/ticket'
+import { toast } from 'react-toastify'
 
-const getStateTicket = async (setIdStateTicket) => {
-  try {
-    const response = await getTicketStateByName('abierto')
-    if (response.status === 200) {
-      setIdStateTicket(response.data)
-    }
-  } catch (error) {
-    UseHandleErrors(error)
-  }
-}
 const FormNewTicket = () => {
   const location = useLocation()
-  const { id, categoryService, nameItem, itemImage } = location.state.service
+  const { id, categoryService, nameItem, itemImage, itemDescription } = location.state.service
   const [description, setDescription] = useState('')
-  const [idStateTicket, setIdStateTicket] = useState('')
-  useEffect(() => {
-    getStateTicket(setIdStateTicket)
-  }, [])
-  console.log(location.state)
-  const createTicket = (e) => {
+  const navigate = useNavigate()
+  const createTicket = async (e) => {
     e.preventDefault()
     const data = {
       description,
       idDepartment: categoryService.idCategory,
       idItem: id,
-      idStateTicket
+      itemDescription
+    }
+    try {
+      const response = await newTicket(data)
+      if (response.status === 201) {
+        toast.success(response.data.message)
+        navigate('/home')
+      }
+    } catch (error) {
+      UseHandleErrors(error)
     }
   }
   return (
