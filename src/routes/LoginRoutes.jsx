@@ -20,6 +20,7 @@ const LoginRoutes = () => {
       <Route path='/home' element={<Home />} />
       <Route path='/home/catalog' element={<ServiceCatalog />} />
       <Route path='/ticket' element={<NewTicket />} />
+      <Route path='/ticket/:id' element={<Prueba />} />
       <Route path='/user/manager' element={<User />} />
       <Route path='/user/manager/state' element={<State />} />
       <Route path='/user/manager/role' element={<Role />} />

@@ -38,7 +38,7 @@ const TableBodyServices = ({ data, edit, Delete }) => {
         <tr key={data?.id}>
           <td>{data?.nameItem}</td>
           <td>
-            <img src={data?.itemImage} alt='image-item' id='image-bodytable-service' />
+            <img src={data?.itemImage} id='image-service' alt='image-item' />
           </td>
           <td>{data?.itemDescription}</td>
           <td>{data?.categoryService?.nameCategory}</td>

@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarTogglerDemo02'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0' id='navbar-menu'>
             <li className='nav-item'>
-              <Link className='nav-link' href='#'>Tickets</Link>
+              <Link className='nav-link' to='/home'>Tickets</Link>
             </li>
             <li className='nav-item'>
               <Link className='nav-link' to='/home/catalog'>Catalogo de Servicios</Link>
