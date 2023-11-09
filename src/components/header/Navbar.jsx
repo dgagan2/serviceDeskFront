@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import checkRoles from '../../hooks/chechkRole'
 import { useUserContext } from '../../hooks/UseUserContext'
 import NavbarItems from '../itemsAdmin/NavbarItems'
 const Navbar = () => {
@@ -8,8 +7,7 @@ const Navbar = () => {
   const { userLoggedIn } = useUserContext()
 
   const isAdmin = async () => {
-    const response = await checkRoles(userLoggedIn.idRole)
-    if (response) setRole(response)
+    if (userLoggedIn.roleUser.nameRole === 'admin') setRole('admin')
   }
 
   useEffect(() => {
