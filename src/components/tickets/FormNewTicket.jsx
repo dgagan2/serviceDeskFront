@@ -18,6 +18,7 @@ const FormNewTicket = () => {
       idItem: id,
       itemDescription
     }
+    console.log(data)
     try {
       const response = await newTicket(data)
       if (response.status === 201) {

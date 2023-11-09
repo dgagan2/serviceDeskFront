@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/header/Header'
 import { getTicket } from '../../services/ticket'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
   const [ticket, setTicekt] = useState([])
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ const Home = () => {
   }, [])
   const ticketUpdate = (data) => {
     console.log('entro')
-    navigate(`/ticket/${data.numberTicket}`, { state: { data } })
+    navigate(`/support/ticket/${data.numberTicket}`, { state: { data } })
   }
   return (
     <>

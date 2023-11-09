@@ -23,5 +23,8 @@ const getTicket = async () => {
   const response = await axios.get(`${URL}/ticket/`, getToken())
   return response
 }
-
-export { newTicket, getTicket }
+const closeRequest = async (numberTicket) => {
+  const response = await axios.patch(`${URL}/ticket/close`, { numberTicket }, getToken())
+  return response
+}
+export { newTicket, getTicket, closeRequest }

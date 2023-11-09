@@ -13,6 +13,7 @@ import Servicios from '../pages/tickets/Servicios'
 import TicketState from '../pages/tickets/TicketState'
 import ServiceCatalog from '../pages/tickets/ServiceCatalog'
 import NewTicket from '../pages/tickets/NewTicket'
+import TicketDetails from '../pages/home/TicketDetails'
 
 const LoginRoutes = () => {
   return (
@@ -20,7 +21,7 @@ const LoginRoutes = () => {
       <Route path='/home' element={<Home />} />
       <Route path='/home/catalog' element={<ServiceCatalog />} />
       <Route path='/ticket' element={<NewTicket />} />
-      <Route path='/ticket/:id' element={<Prueba />} />
+      <Route path='/support/ticket/:id' element={<TicketDetails />} />
       <Route path='/user/manager' element={<User />} />
       <Route path='/user/manager/state' element={<State />} />
       <Route path='/user/manager/role' element={<Role />} />
