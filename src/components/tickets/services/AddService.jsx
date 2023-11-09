@@ -62,7 +62,6 @@ const AddService = () => {
     itemDescription: ''
 
   })
-  console.log('input', input)
   return (
 
     <article className='container-new-service'>
