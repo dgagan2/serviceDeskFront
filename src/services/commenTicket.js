@@ -14,9 +14,13 @@ const getToken = () => {
   return config
 }
 
+const getTicketFeedback = async (numberTicket) => {
+  const response = await axios.get(`${URL}/comment/${numberTicket}`, getToken())
+  return response
+}
 const newComment = async (data) => {
-  const response = await axios.post(`${URL}/ticket/comment`, data, getToken())
+  const response = await axios.post(`${URL}/comment`, data, getToken())
   return response
 }
 
-export { newComment }
+export { newComment, getTicketFeedback }

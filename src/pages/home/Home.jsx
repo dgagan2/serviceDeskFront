@@ -3,19 +3,18 @@ import Header from '../../components/header/Header'
 import { getTicket } from '../../services/ticket'
 import { useNavigate } from 'react-router-dom'
 const Home = () => {
-  const [ticket, setTicekt] = useState([])
+  const [ticket, setTicket] = useState([])
   const navigate = useNavigate()
   const getTicekts = async () => {
     const response = await getTicket()
     if (response.status === 200) {
-      setTicekt(response.data)
+      setTicket(response.data)
     }
   }
   useEffect(() => {
     getTicekts()
   }, [])
   const ticketUpdate = (data) => {
-    console.log('entro')
     navigate(`/support/ticket/${data.numberTicket}`, { state: { data } })
   }
   return (
