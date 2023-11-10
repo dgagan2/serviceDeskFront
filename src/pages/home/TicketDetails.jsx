@@ -41,17 +41,25 @@ const TicketDetails = () => {
   return (
     <>
       <Header />
-      <section>
-        <ButtonCloseTickets stateTicket={stateTicket} numberTicket={numberTicket} />
-        <article>
-          <b># Solicitud: {numberTicket}</b>
+      <section style={{ margin: '60px' }}>
+
+        <article className='d-flex justify-content-between'>
+          <div>
+          <b>Servicio Solicitado</b>
           <p>{itemService?.nameItem}</p>
+          </div>
+
+          <b>Solicitud N {numberTicket}</b>
         </article>
-        <article>
+        <article style={{ paddingBottom: '15px' }}>
+        <p>Creado: {creationDate.slice(0, -14)}</p>
+          <b>Descripción Solicitud</b>
           <p>{description}</p>
           <b>Estado: {stateTicket?.nameState}</b>
-          <span>Creado: {creationDate.slice(0, -14)}</span>
+
         </article>
+        <ButtonCloseTickets stateTicket={stateTicket} numberTicket={numberTicket} />
+
         <AddComment stateTicket={stateTicket} numberTicket={numberTicket} setComments={setComments} />
         <RenderComments numberTicket={numberTicket} setComments={setComments} comments={comments} />
       </section>
@@ -76,9 +84,9 @@ const AddComment = ({ stateTicket, numberTicket, setComments }) => {
   return (
     <>
       {stateTicket?.nameState !== 'cerrado'
-        ? <article>
-          <span>Agregar Comentario</span>
-          <textarea name='descriptionComment' id='descriptionComment' cols='30' rows='10' value={descriptionComment} onChange={(e) => setDescriptionComment(e.target.value)} />
+        ? <article className='d-flex flex-column gap-3' style={{ padding: '10px 0px' }}>
+          <b>Agregar Comentario</b>
+          <textarea name='descriptionComment' id='descriptionComment' cols='10' rows='5' value={descriptionComment} onChange={(e) => setDescriptionComment(e.target.value)} />
           <button
             className='btn btn-dark'
             onClick={() => add(descriptionComment, numberTicket, setDescriptionComment, setComments)}

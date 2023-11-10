@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from '../../components/header/Header'
 import { getTicket } from '../../services/ticket'
 import { useNavigate } from 'react-router-dom'
+import './home.css'
 const Home = () => {
   const [ticket, setTicket] = useState([])
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ const Home = () => {
   return (
     <>
       <Header />
-      <section>
+      <section id='container-home-tickets'>
         <article className='d-flex justify-content-center'>
           <ul style={{ width: '70%' }}>
             {ticket && ticket.map((ticket) => (
@@ -33,9 +34,9 @@ const Home = () => {
                   </button>
                   <b>{ticket.creationDate.slice(0, -14)}</b>
                 </div>
-                <div className='d-flex gap-3'>
+                <div className='d-flex flex-column'>
                   <button
-                    style={{ backgroundColor: 'transparent', borderStyle: 'none' }}
+                    style={{ backgroundColor: 'transparent', borderStyle: 'none', textAlign: 'initial' }}
                     onClick={() => ticketUpdate(ticket)}
                   >Servicio Solicitado: {ticket?.itemService?.nameItem}
                   </button>
