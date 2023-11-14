@@ -7,7 +7,7 @@
     background-color: transparent;
 }
 .form-control{
-    max-width: 300px;
+    max-width: 100%;
 }
 
 #state-user{
